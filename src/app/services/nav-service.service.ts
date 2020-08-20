@@ -14,7 +14,8 @@ export class NavService {
     return NavData;
   }
 
-  getMenus(parent: string): NavItem[] {
-    return NavData.find(nav => nav.text === parent).submenus;
+  getMenus(parentMenu: string): NavItem[] {
+    console.log(parentMenu);
+    return NavData.find(nav => nav.text === parentMenu).submenus;
   }
 }

@@ -1,1 +1,21 @@
-<p>app-menu works!</p>
+<nav class="navbar navbar-expand-lg navbar-light"
+     style="margin-left: 10px; margin-right: 10px; height: 42px; background-color: #BED83C" *ngIf="submenus.length > 0">
+  <div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav">
+      <li class="nav-item active" *ngFor="let menu of submenus" (click)="onMenuSelect(menu.id)">
+        <span class="nav-link" href="#">{{menu.text}} <span class="sr-only">(current)</span></span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="children.length > 0"
+     style="margin-left: 10px; margin-right: 10px; height: 35px; border-bottom-style: solid; border-bottom-color: lightslategrey;">
+  <div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav">
+      <li class="nav-item active"  *ngFor="let child of children" [routerLink]="child.link">
+        <span class="nav-link" href="#">{{child.text}}</span>
+      </li>
+    </ul>
+  </div>
+</nav>
